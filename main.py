@@ -21,23 +21,26 @@ try:
                 sl.plotly_chart(figure)
             case 'Sky':
 
-                for con in z:
-                    match con:
-                        case 'Clear':
-                            sl.image('images/clear-day.png', width=110)
-                            sl.write(x[z.index(con)])
+                try:
+                    for con in z:
+                        match con:
+                            case 'Clear':
+                                sl.image('images/clear-day.png', width=110)
+                                sl.write(x[z.index(con)])
 
-                        case 'Rain, Partially cloudy':
-                            sl.image('images/rain.png', width=110)
-                            sl.write(x[z.index(con)])
+                            case 'Rain, Partially cloudy':
+                                sl.image('images/rain.png', width=110)
+                                sl.write(x[z.index(con)])
 
-                        case 'Snow':
-                            sl.image('images/snow.png', width=110)
-                            sl.write(x[z.index(con)])
+                            case 'Snow':
+                                sl.image('images/snow.png', width=110)
+                                sl.write(x[z.index(con)])
 
-                        case _:
-                            sl.image('images/cloud.png', width=110)
-                            sl.write(x[z.index(con)])
+                            case _:
+                                sl.image('images/cloudy.png', width=110)
+                                sl.write(x[z.index(con)])
+                except:
+                    sl.write('there is no image for condition')
 
     else:
         sl.write("Please Enter A City")
